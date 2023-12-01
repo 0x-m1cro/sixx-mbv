@@ -1289,7 +1289,7 @@
                                                 <div class="pro-qty mr--20"><input type="text" value="1"></div>
                                                 
                                                 <ul class="product-action d-flex-center mb--0">
-                                                    <li class="add-to-cart"><a href="#" on:click={() => addToCart(p)} class="axil-btn btn-bg-primary">Add to Cart</a></li>
+                                                    <li class="add-to-cart"><a href="#" on:click={() => addToCart(product)} class="axil-btn btn-bg-primary">Add to Cart</a></li>
                                                     <!-- <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li> -->
                                                 </ul>
                                                
@@ -1310,19 +1310,19 @@
                                                 <ul class="pro-des-features pro-desc-style-two">
                                                     <li class="single-features">
                                                         <div class="icon">
-                                                            <img src="assets/images/product/product-thumb/icon-3.png" alt="icon">
+                                                            <img src="/assets/images/product/product-thumb/icon-3.png" alt="icon">
                                                         </div>
                                                         Easy Returns
                                                     </li>
                                                     <li class="single-features">
                                                         <div class="icon">
-                                                            <img src="assets/images/product/product-thumb/icon-2.png" alt="icon">
+                                                            <img src="/assets/images/product/product-thumb/icon-2.png" alt="icon">
                                                         </div>
                                                         Quality Service
                                                     </li>
                                                     <li class="single-features">
                                                         <div class="icon">
-                                                            <img src="assets/images/product/product-thumb/icon-1.png" alt="icon">
+                                                            <img src="/assets/images/product/product-thumb/icon-1.png" alt="icon">
                                                         </div>
                                                         Original Product
                                                     </li>
@@ -1371,7 +1371,7 @@
                 <div class="col">
                     <div class="service-box service-style-2">
                         <div class="icon">
-                            <img src="assets/images/icons/service1.png" alt="Service">
+                            <img src="/assets/images/icons/service1.png" alt="Service">
                         </div>
                         <div class="content">
                             <h6 class="title">Fast &amp; Secure Delivery</h6>
@@ -1382,7 +1382,7 @@
                 <div class="col">
                     <div class="service-box service-style-2">
                         <div class="icon">
-                            <img src="assets/images/icons/service2.png" alt="Service">
+                            <img src="/assets/images/icons/service2.png" alt="Service">
                         </div>
                         <div class="content">
                             <h6 class="title">Money Back Guarantee</h6>
@@ -1393,7 +1393,7 @@
                 <div class="col">
                     <div class="service-box service-style-2">
                         <div class="icon">
-                            <img src="assets/images/icons/service3.png" alt="Service">
+                            <img src="/assets/images/icons/service3.png" alt="Service">
                         </div>
                         <div class="content">
                             <h6 class="title">24 Hour Return Policy</h6>
@@ -1404,7 +1404,7 @@
                 <div class="col">
                     <div class="service-box service-style-2">
                         <div class="icon">
-                            <img src="assets/images/icons/service4.png" alt="Service">
+                            <img src="/assets/images/icons/service4.png" alt="Service">
                         </div>
                         <div class="content">
                             <h6 class="title">Pro Quality Support</h6>
@@ -1433,34 +1433,34 @@
                                     <div class="col-lg-10 order-lg-2">
                                         <div class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
                                             <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-01.png" alt="Product Images">
+                                                <img src="/assets/images/product/product-big-01.png" alt="Product Images">
                                                 <div class="label-block label-right">
                                                     <div class="product-badget">20% OFF</div>
                                                 </div>
                                                 <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-01.png" class="popup-zoom">
+                                                    <a href="/assets/images/product/product-big-01.png" class="popup-zoom">
                                                         <i class="far fa-search-plus"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-02.png" alt="Product Images">
+                                                <img src="/assets/images/product/product-big-02.png" alt="Product Images">
                                                 <div class="label-block label-right">
                                                     <div class="product-badget">20% OFF</div>
                                                 </div>
                                                 <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-02.png" class="popup-zoom">
+                                                    <a href="/assets/images/product/product-big-02.png" class="popup-zoom">
                                                         <i class="far fa-search-plus"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-03.png" alt="Product Images">
+                                                <img src="/assets/images/product/product-big-03.png" alt="Product Images">
                                                 <div class="label-block label-right">
                                                     <div class="product-badget">20% OFF</div>
                                                 </div>
                                                 <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-03.png" class="popup-zoom">
+                                                    <a href="/assets/images/product/product-big-03.png" class="popup-zoom">
                                                         <i class="far fa-search-plus"></i>
                                                     </a>
                                                 </div>
@@ -1470,13 +1470,13 @@
                                     <div class="col-lg-2 order-lg-1">
                                         <div class="product-small-thumb small-thumb-wrapper">
                                             <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-08.png" alt="thumb image">
+                                                <img src="/assets/images/product/product-thumb/thumb-08.png" alt="thumb image">
                                             </div>
                                             <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-07.png" alt="thumb image">
+                                                <img src="/assets/images/product/product-thumb/thumb-07.png" alt="thumb image">
                                             </div>
                                             <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-09.png" alt="thumb image">
+                                                <img src="/assets/images/product/product-thumb/thumb-09.png" alt="thumb image">
                                             </div>
                                         </div>
                                     </div>
@@ -1487,7 +1487,7 @@
                                     <div class="inner">
                                         <div class="product-rating">
                                             <div class="star-rating">
-                                                <img src="assets/images/icons/rate.png" alt="Rate Images">
+                                                <img src="/assets/images/icons/rate.png" alt="Rate Images">
                                             </div>
                                             <div class="review-link">
                                                 <a href="#">(<span>1</span> customer reviews)</a>
@@ -1582,7 +1582,7 @@
                     <div class="axil-product-list">
                         <div class="thumbnail">
                             <a href="single-product[0].html">
-                                <img src="assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
+                                <img src="/assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
                             </a>
                         </div>
                         <div class="product-content">
@@ -1610,7 +1610,7 @@
                     <div class="axil-product-list">
                         <div class="thumbnail">
                             <a href="single-product[0].html">
-                                <img src="assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
+                                <img src="/assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
                             </a>
                         </div>
                         <div class="product-content">
