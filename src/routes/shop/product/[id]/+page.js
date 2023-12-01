@@ -1,10 +1,13 @@
+// @ts-nocheck 
 export const load = async ({ fetch, params }) => {
+    
     const getProducts = async () => {
-        const req = await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=50`)
+        const req = await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=25`)
         const res = await req.json()
-        return res
         
+        return res;
     }
+ 
     const ctx = params
     
     return {
