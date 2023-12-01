@@ -6,7 +6,14 @@ import Carousel from 'svelte-carousel'
 import {onMount} from "svelte"
 import { browser } from '$app/environment';
 
-
+let productsPromise
+async function getProducts(){
+        const req = await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=25`)
+        const res = await req.json()
+        return res 
+        
+}
+productsPromise = getProducts()
 
 let cart = [];
 	
@@ -33,14 +40,7 @@ const plusItem = (product) => {
 }
 
 $: total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-let productsPromise
-async function getProducts(){
-        const req = await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=25`)
-        const res = await req.json()
-        return res 
-        
-}
-productsPromise = getProducts()
+
 onMount(() => {
     
     function initTheme() {
@@ -1178,9 +1178,6 @@ onMount(() => {
     }
     initTheme()
 
-   
- 
-    
 })
 
 
