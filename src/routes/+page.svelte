@@ -2,19 +2,21 @@
 // @ts-nocheck 
 import Header from "$lib/components/header/header.svelte"
 import Footer from "$lib/components/footer/footer.svelte"
-import Carousel from 'svelte-carousel'
+import Cart from "$lib/components/misc/cart.svelte"
 import {onMount} from "svelte"
+import bassukulele from "$lib/images/bass-ukulele.png"
+
 import { browser } from '$app/environment';
 
 let productsPromise
-async function getProducts(){
+const getProducts = async () => {
         const req = await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=25`)
         const res = await req.json()
         return res 
         
 }
-productsPromise = getProducts()
-
+productsPromise =  getProducts()
+ 
 $: cart = [];
 	
 const addToCart = (product) => {
@@ -44,15 +46,15 @@ const minusItem = (product) => {
 		}
 	}
 	
-	const plusItem = (product) => {
-		for(let item of cart) {
-			if(item.id === product.id) {
-				item.quantity += 1
-				cart = cart;
-				return;
-			}
-		}
-	}
+const plusItem = (product) => {
+    for(let item of cart) {
+        if(item.id === product.id) {
+            item.quantity += 1
+            cart = cart;
+            return;
+        }
+    }
+}
 
 $: total = cart.reduce((sum, item) => sum + item.prices.price * item.quantity, 0)
  
@@ -1208,164 +1210,35 @@ onMount(() => {
                 <div class="col-lg-5 col-sm-6">
                     <div class="main-slider-content">
                         <div class="slider-content-activation-one">
+                          
                             <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="400" data-sal-duration="800">
                                 <span class="subtitle"><i class="fas fa-fire"></i> Hot Deal In This Week</span>
-                                <h1 class="title">Roco Wireless Headphone</h1>
+                                <h1 class="title">Bass Ukulele</h1>
                                 <div class="slide-action">
                                     <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>Shop Now</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="assets/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                            <span class="rating-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </span>
-                                            <span class="review-text">
-                                        <span>100+</span> Reviews
-                                            </span>
-                                        </div>
+                                        <a href="#" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>Shop Now</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="single-slide slick-slide">
-                                <span class="subtitle"><i class="fas fa-fire"></i> Hot Deal In This Week</span>
-                                <h1 class="title">Smart Digital Watch</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>Shop Now</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="assets/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                            <span class="rating-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </span>
-                                            <span class="review-text">
-                                        <span>100+</span> Reviews
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <span class="subtitle"><i class="fas fa-fire"></i> Hot Deal In This Week</span>
-                                <h1 class="title">Roco Wireless Headphone</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>Shop Now</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="assets/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                            <span class="rating-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </span>
-                                            <span class="review-text">
-                                        <span>100+</span> Reviews
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <span class="subtitle"><i class="fas fa-fire"></i> Hot Deal In This Week</span>
-                                <h1 class="title">Smart Digital Watch</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>Shop Now</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="assets/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="assets/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                            <span class="rating-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </span>
-                                            <span class="review-text">
-                                        <span>100+</span> Reviews
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                           
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 col-sm-6">
                     <div class="main-slider-large-thumb">
                         <div class="slider-thumb-activation-one axil-slick-dots">
-                            <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500">
-                                <img src="assets/images/product/product-38.png" alt="Product">
+ 
+                            
+                            <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="300" data-sal-duration="1500">
+                                <img src={bassukulele} alt="bass ukulele">
                                 <div class="product-price">
                                     <span class="text">From</span>
-                                    <span class="price-amount">$49.00</span>
+                                    <span class="price-amount">MRF 3,995</span>
                                 </div>
                             </div>
-                            <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500">
-                                <img src="assets/images/product/product-39.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">From</span>
-                                    <span class="price-amount">$49.00</span>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <img src="assets/images/product/product-38.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">From</span>
-                                    <span class="price-amount">$49.00</span>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <img src="assets/images/product/product-39.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">From</span>
-                                    <span class="price-amount">$49.00</span>
-                                </div>
-                            </div>
+                              
+                        
                         </div>
                     </div>
                 </div>
@@ -1384,8 +1257,8 @@ onMount(() => {
                 <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> Categories</span>
                 <h2 class="title">Browse by Category</h2>
             </div>
-            {#if browser}
-            <Carousel class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide" particlesToShow={7}> 
+            
+            <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide" > 
                 <div class="slick-single-layout">
                     <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">
                         <a href="#">
@@ -1506,13 +1379,13 @@ onMount(() => {
                     <!-- End .categrie-product -->
                 </div>
             
-            </Carousel>
-        {/if}
+            </div>
+    
     </div>
     <!-- End Categorie Area  -->
 
     <!-- Poster Countdown Area  -->
-    <div class="axil-poster-countdown">
+    <div class="axil-poster-countdown hidemb">
         <div class="container">
             <div class="poster-countdown-wrap bg-lighter">
                 <div class="row">
@@ -1561,7 +1434,7 @@ onMount(() => {
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                             <div class="axil-product product-style-one">
                                 <div class="thumbnail">
-                                    <a href="single-product.html">
+                                    <a href="/shop/product/{p.id}">
                                         {#each p.images as img}
                                         <img  class="main-img" src={img.src} alt={img.name}>
                                         <img class="hover-img" src={img.src} alt={img.name}>
@@ -1572,7 +1445,7 @@ onMount(() => {
                                     </div> -->
                                     <div class="product-hover-action">
                                         <ul class="cart-action">
-                                            <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                            <!-- <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li> -->
                                             <li class="select-option">
                                                 <a href="#" on:click={() => addToCart(p)}>
                                                     Add to Cart
@@ -1594,7 +1467,7 @@ onMount(() => {
                                     </span>
                                             <span class="rating-number">(64)</span>
                                         </div>
-                                        <h5 class="title"><a href="#">{@html p.name}</a></h5>
+                                        <h5 class="title"><a href="/shop/product/{p.id}">{@html p.name}</a></h5>
                                         <div class="product-price-variant">
                                             <span class="price current-price">MRF {p.prices.price}</span>
                                             <!-- <span class="price old-price">MRF {p.prices.sales_price}</span> -->
@@ -2619,58 +2492,9 @@ onMount(() => {
     </div>
 </div>
 <!-- Header Search Modal End -->
+<Cart {cart} {total} />
 
 
-<div class="cart-dropdown" id="cart-dropdown">
-    <div class="cart-content-wrap">
-        <div class="cart-header">
-            <h2 class="header-title">Cart review</h2>
-            <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="cart-body">
-            <ul class="cart-item-list">
-                {#each cart as item }
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product"><img src="{item.images[0].src}" alt="{item.name}"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="item-content">
-                        <div class="product-rating">
-                            <span class="icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </span>
-                            <!-- <span class="rating-number">(64)</span> -->
-                        </div>
-                        <h3 class="item-title"><a href="single-product-3">{item.name}</a></h3>
-                        <div class="item-price"><span class="currency-symbol">MRF</span>{item.prices.price}</div>
-                        <div class="pro-qty item-quantity">
-                            <span class="dec qtybtn" click on:click={() => minusItem(item)}>-</span>
-                            <input type="number" class="quantity-input" value="{item.quantity}">
-                            <span class="inc qtybtn" on:click={() => plusItem(item)}>+</span>
-                        </div>
-                    </div>
-                </li>
-                {/each}
-                
-            </ul>
-        </div>
-        <div class="cart-footer">
-            <h3 class="cart-subtotal">
-                <span class="subtotal-title">Subtotal:</span>
-                <span class="subtotal-amount">{total ?? total}</span>
-            </h3>
-            <div class="group-btn">
-                <a href="#" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
-                <a href="#" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Offer Modal Start -->
 <div class="offer-popup-modal" id="offer-popup-modal">
