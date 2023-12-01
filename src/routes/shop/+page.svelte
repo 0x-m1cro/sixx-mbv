@@ -1202,7 +1202,7 @@ onMount(() => {
 
 </script>
 
-<Header />
+<Header {cart}/>
 
 <main class="main-wrapper">
     <!-- Start Breadcrumb Area  -->
