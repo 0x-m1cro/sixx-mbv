@@ -15,31 +15,47 @@ async function getProducts(){
 }
 productsPromise = getProducts()
 
-let cart = [];
+$: cart = [];
 	
 const addToCart = (product) => {
-    cart = [...cart, product]
-    console.log(cart)
-}
+        product.quantity = '1'
+		for(let item of cart) {
+				if(item.id === product.id) {
+					product.quantity += 1
+					cart = cart;
+					return;
+				}
+		}
+		cart = [...cart, product]
+        console.log(cart)
+	}
 
 const minusItem = (product) => {
-    for(let item of cart) {
-            if(item.id === product.id) {
-                cart = cart.filter((cartItem) => cartItem != product)
-            }
-    }
-    return cart
-}
+		for(let item of cart) {
+				if(item.id === product.id) {
+					if(product.quantity > 1 ) {
+							product.quantity -= 1
+							cart = cart
+					} else {
+							cart = cart.filter((cartItem) => cartItem != product)
+					}
+					return;
+				}
+		}
+	}
+	
+	const plusItem = (product) => {
+		for(let item of cart) {
+			if(item.id === product.id) {
+				item.quantity += 1
+				cart = cart;
+				return;
+			}
+		}
+	}
 
-const plusItem = (product) => {
-    for(let item of cart) {
-        if(item.id === product.id) {
-            cart = cart.filter((cartItem) => cartItem != product)
-        }
-    }
-}
-
-$: total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+$: total = cart.reduce((sum, item) => sum + item.prices.price * item.quantity, 0)
+ 
 
 onMount(() => {
     
@@ -245,23 +261,23 @@ onMount(() => {
             },
 
             priceRangeSlider: function(e) {
-                // jQuery('#slider-range').slider({
-                //     range: true,
-                //     min: 0,
-                //     max: 5000,
-                //     values: [0, 3000],
-                //     slide: function(event, ui) {
-                //         jQuery('#amount').val('jQuery' + ui.values[0] + '  jQuery' + ui.values[1]);
-                //     }
-                // });
-                // jQuery('#amount').val('jQuery' + jQuery('#slider-range').slider('values', 0) +
-                //     '  jQuery' + jQuery('#slider-range').slider('values', 1));
+                jQuery('#slider-range').slider({
+                    range: true,
+                    min: 0,
+                    max: 5000,
+                    values: [0, 3000],
+                    slide: function(event, ui) {
+                        jQuery('#amount').val('jQuery' + ui.values[0] + '  jQuery' + ui.values[1]);
+                    }
+                });
+                jQuery('#amount').val('jQuery' + jQuery('#slider-range').slider('values', 0) +
+                    '  jQuery' + jQuery('#slider-range').slider('values', 1));
 
             },
 
             quantityRanger: function() {
-                jQuery('.pro-qty').prepend('<span class="dec qtybtn" on:click={() => minusItem(item)}>-</span>');
-                jQuery('.pro-qty').append('<span class="inc qtybtn" on:click={() => plusItem(item)}>+</span>');
+               // jQuery('.pro-qty').prepend('<span class="dec qtybtn" on:click={() => minusItem(item)}>-</span>');
+               // jQuery('.pro-qty').append('<span class="inc qtybtn" on:click={() => plusItem(item)}>+</span>');
                 jQuery('.qtybtn').on('click', function() {
                     var jQuerybutton = jQuery(this);
                     var oldValue = jQuerybutton.parent().find('input').val();
@@ -2633,7 +2649,9 @@ onMount(() => {
                         <h3 class="item-title"><a href="single-product-3">{item.name}</a></h3>
                         <div class="item-price"><span class="currency-symbol">MRF</span>{item.prices.price}</div>
                         <div class="pro-qty item-quantity">
+                            <span class="dec qtybtn" click on:click={() => minusItem(item)}>-</span>
                             <input type="number" class="quantity-input" value="{item.quantity}">
+                            <span class="inc qtybtn" on:click={() => plusItem(item)}>+</span>
                         </div>
                     </div>
                 </li>
@@ -2644,11 +2662,11 @@ onMount(() => {
         <div class="cart-footer">
             <h3 class="cart-subtotal">
                 <span class="subtotal-title">Subtotal:</span>
-                <span class="subtotal-amount">{$total}</span>
+                <span class="subtotal-amount">{total ?? total}</span>
             </h3>
             <div class="group-btn">
-                <a href="cart" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
-                <a href="checkout" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
+                <a href="#" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
+                <a href="#" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
             </div>
         </div>
     </div>
