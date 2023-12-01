@@ -5,30 +5,15 @@
     //import Cart from "$lib/components/misc/cart.svelte"
     import {onMount} from "svelte"
 
-    import { browser } from '$app/environment';
+ 
     export let data
     
     const { params } = data
-    const id = params.id
-    let products = []
-    
-    const getProducts = async () => {
-           await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=50`)
-           .then(res => res.json())
-           .then(data => {
-                data.filter((d) => {
-                    if (d.id == id)
-                    products.push(d)
-                    return d
-                });
-           })     
-    }
-
-    getProducts()
-    console.log(products)
-   
-   
-        
+ 
+    let product = params.product
+ 
+    console.log(product)
+ 
     $: cart = [];
         
     const addToCart = (product) => {
@@ -70,7 +55,7 @@
     
     $: total = cart.reduce((sum, item) => sum + item.prices.price * item.quantity, 0)
         
-    
+    let d
     onMount(() => {
         
         function initTheme() {
@@ -1218,9 +1203,8 @@
     <main class="main-wrapper">
         <!-- Start Shop Area  -->
         <div class="axil-single-product-area bg-color-white">
-            <!-- {#await productsPromise}
-            {:then data} -->
-                     
+            {#await product }
+            {:then p}
             <div class="single-product-thumb axil-section-gap pb--20 pb_sm--0 bg-vista-white">
                 <div class="container">
                     <div class="row row--25">
@@ -1317,8 +1301,8 @@
                                 <div class="position-sticky sticky-top">
                                     <div class="single-product-content">
                                         <div class="inner">
-                                            <h2 class="product-title"> {products[0].name}</h2>
-                                            <span class="price-amount">MRF {products[0].prices.price}</span>
+                                            <h2 class="product-title"> {p.name}</h2>
+                                            <span class="price-amount">MRF {p.prices.price}</span>
                                             <div class="product-rating">
                                                 <div class="star-rating">
                                                     <i class="fas fa-star"></i>
@@ -1336,7 +1320,7 @@
                                                 <li><i class="fal fa-check"></i>Free delivery available</li>
                                                 <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
                                             </ul>
-                                            <p class="description">{@html products[0].description}</p>
+                                            <p class="description">{@html p.description}</p>
 
                                             <div class="product-variations-wrapper">
 
@@ -1391,7 +1375,7 @@
                                                 <h4 class="primary-color mb--40 desc-heading">Description</h4>
                                                 <div class="single-desc mb--30">
                                                     <h5 class="title">Specifications:</h5>
-                                                    <p>{@html products[0].description}</p>
+                                                    <p>{@html p.description}</p>
                                                 </div>
                                                 <div class="single-desc mb--5">
                                                     <h5 class="title">Care & Maintenance:</h5>
@@ -1428,12 +1412,12 @@
                     </div>
                 </div>
             </div>
-           <!-- {/await} -->
+            
+           {/await}   
             <!-- End .single-product-thumb -->
 
         </div>
-        <!-- End Shop Area  -->
-
+    
         <!-- Start Recently Viewed Product Area  -->
         <div class="axil-product-area bg-color-white axil-section-gap pb--50 pb_sm--30">
             <div class="container">
