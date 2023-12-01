@@ -11,7 +11,7 @@
     const { params } = data
     const id = params.id
     let products = []
-
+    
     const getProducts = async () => {
            await fetch(`https://six-x.shop/wp-json/wc/store/products?_embed&per_page=50`)
            .then(res => res.json())
@@ -1317,8 +1317,8 @@
                                 <div class="position-sticky sticky-top">
                                     <div class="single-product-content">
                                         <div class="inner">
-                                            <h2 class="product-title"> </h2>
-                                            <span class="price-amount">$155.00 - $255.00</span>
+                                            <h2 class="product-title"> {products[0].name}</h2>
+                                            <span class="price-amount">MRF {products[0].prices.price}</span>
                                             <div class="product-rating">
                                                 <div class="star-rating">
                                                     <i class="fas fa-star"></i>
@@ -1336,7 +1336,7 @@
                                                 <li><i class="fal fa-check"></i>Free delivery available</li>
                                                 <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
                                             </ul>
-                                            <p class="description">In ornare lorem ut est dapibus, ut tincidunt nisi pretium. Integer ante est, hendrerit in rutrum quis, elementum eget magna. Pellentesque sagittis dictum libero, eu dignissim tellus.</p>
+                                            <p class="description">{@html products[0].description}</p>
 
                                             <div class="product-variations-wrapper">
 
@@ -1391,12 +1391,11 @@
                                                 <h4 class="primary-color mb--40 desc-heading">Description</h4>
                                                 <div class="single-desc mb--30">
                                                     <h5 class="title">Specifications:</h5>
-                                                    <p>We’ve created a full-stack structure for our working workflow processes, were from the funny the century initial all the made, have spare to negatives. But the structure was from the funny the century rather,
-                                                        initial all the made, have spare to negatives.</p>
+                                                    <p>{@html products[0].description}</p>
                                                 </div>
                                                 <div class="single-desc mb--5">
                                                     <h5 class="title">Care & Maintenance:</h5>
-                                                    <p>Use warm water to describe us as a product team that creates amazing UI/UX experiences, by crafting top-notch user experience.</p>
+                                                    <!-- <p>Use warm water to describe us as a product team that creates amazing UI/UX experiences, by crafting top-notch user experience.</p> -->
                                                 </div>
                                                 <ul class="pro-des-features pro-desc-style-two">
                                                     <li class="single-features">
