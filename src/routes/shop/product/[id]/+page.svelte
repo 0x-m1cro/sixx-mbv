@@ -7,13 +7,11 @@
 
  
     export let data
-    
-    const { params } = data
+    const { products, id } = data
  
-    let product = params.product
- 
+    let product = products?.filter(p => { p.id === id})
     console.log(product)
- 
+
     $: cart = [];
         
     const addToCart = (product) => {
@@ -1203,9 +1201,8 @@
     <main class="main-wrapper">
         <!-- Start Shop Area  -->
         <div class="axil-single-product-area bg-color-white">
-            {#await product }
-            {:then p}
-            <div class="single-product-thumb axil-section-gap pb--20 pb_sm--0 bg-vista-white">
+      
+            <!-- <div class="single-product-thumb axil-section-gap pb--20 pb_sm--0 bg-vista-white">
                 <div class="container">
                     <div class="row row--25">
                         <div class="col-lg-6 mb--40">
@@ -1219,7 +1216,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1227,7 +1224,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1235,7 +1232,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1243,7 +1240,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1251,7 +1248,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1259,7 +1256,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1267,7 +1264,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1275,7 +1272,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1283,7 +1280,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                         <div class="col-6 mb--20">
                                             <div class="single-product-thumbnail axil-product thumbnail-grid">
                                                 <div class="thumbnail">
@@ -1291,7 +1288,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- End .col -->
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -1324,7 +1321,7 @@
 
                                             <div class="product-variations-wrapper">
 
-                                                <!-- Start Product Variation  -->
+                                             
                                                 <div class="product-variation">
                                                     <h6 class="title">Colors:</h6>
                                                     <div class="color-variant-wrapper">
@@ -1338,9 +1335,9 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <!-- End Product Variation  -->
+                                                
 
-                                                <!-- Start Product Variation  -->
+                                             
                                                 <div class="product-variation product-size-variation">
                                                     <h6 class="title">Size:</h6>
                                                     <ul class="range-variant">
@@ -1351,25 +1348,25 @@
                                                         <li>xl</li>
                                                     </ul>
                                                 </div>
-                                                <!-- End Product Variation  -->
+                                                
 
                                             </div>
 
-                                            <!-- Start Product Action Wrapper  -->
+                                   
                                             <div class="product-action-wrapper d-flex-center">
-                                                <!-- Start Quentity Action  -->
+                                              
                                                 <div class="pro-qty mr--20"><input type="text" value="1"></div>
-                                                <!-- End Quentity Action  -->
+                                                
 
-                                                <!-- Start Product Action  -->
+                                               
                                                 <ul class="product-action d-flex-center mb--0">
                                                     <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add to Cart</a></li>
                                                     <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
                                                 </ul>
-                                                <!-- End Product Action  -->
+                                               
 
                                             </div>
-                                            <!-- End Product Action Wrapper  -->
+                                            
 
                                             <div class="product-desc-wrapper pt--80 pt_sm--60">
                                                 <h4 class="primary-color mb--40 desc-heading">Description</h4>
@@ -1379,7 +1376,7 @@
                                                 </div>
                                                 <div class="single-desc mb--5">
                                                     <h5 class="title">Care & Maintenance:</h5>
-                                                    <!-- <p>Use warm water to describe us as a product team that creates amazing UI/UX experiences, by crafting top-notch user experience.</p> -->
+                                                      <p>Use warm water to describe us as a product team that creates amazing UI/UX experiences, by crafting top-notch user experience.</p> - 
                                                 </div>
                                                 <ul class="pro-des-features pro-desc-style-two">
                                                     <li class="single-features">
@@ -1401,9 +1398,9 @@
                                                         Original Product
                                                     </li>
                                                 </ul>
-                                                <!-- End .pro-des-features -->
+                                                
                                             </div>
-                                            <!-- End .product-desc-wrapper -->
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -1411,14 +1408,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
             
-           {/await}   
-            <!-- End .single-product-thumb -->
-
-        </div>
-    
-        <!-- Start Recently Viewed Product Area  -->
+         
+        </div>  -->
+        
         <div class="axil-product-area bg-color-white axil-section-gap pb--50 pb_sm--30">
             <div class="container">
                 <div class="section-title-wrapper">
@@ -1905,7 +1899,7 @@
     
                                         <div class="product-variations-wrapper">
     
-                                            <!-- Start Product Variation  -->
+                                         
                                             <div class="product-variation">
                                                 <h6 class="title">Colors:</h6>
                                                 <div class="color-variant-wrapper">
@@ -1919,9 +1913,9 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <!-- End Product Variation  -->
+                                            
     
-                                            <!-- Start Product Variation  -->
+                                         
                                             <div class="product-variation">
                                                 <h6 class="title">Size:</h6>
                                                 <ul class="range-variant">
@@ -1932,25 +1926,25 @@
                                                     <li>xl</li>
                                                 </ul>
                                             </div>
-                                            <!-- End Product Variation  -->
+                                            
     
                                         </div>
     
-                                        <!-- Start Product Action Wrapper  -->
+                               
                                         <div class="product-action-wrapper d-flex-center">
-                                            <!-- Start Quentity Action  -->
+                                          
                                             <div class="pro-qty"><input type="text" value="1"></div>
-                                            <!-- End Quentity Action  -->
+                                            
     
-                                            <!-- Start Product Action  -->
+                                           
                                             <ul class="product-action d-flex-center mb--0">
                                                 <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add to Cart</a></li>
                                                 <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
                                             </ul>
-                                            <!-- End Product Action  -->
+                                           
     
                                         </div>
-                                        <!-- End Product Action Wrapper  -->
+                                        
                                     </div>
                                 </div>
                             </div>
